@@ -40,3 +40,21 @@ COMP6012-assignment/
 ├── yolov8n.pt                       # Pretrained YOLOv8n weights
 ├── README.md                        # Project documentation
 └── .gitignore
+
+Dataset Description
+
+The project uses a dataset containing corresponding blurred, deblurred, and sharp/reference images for object detection analysis.
+
+The processed dataset is organised into:
+
+blur domain
+deblur domain
+sharp domain
+
+Each domain is split into:
+
+train
+val
+test
+
+This consistent split allows fair comparison of object detection performance across different image conditions using matched image content.
