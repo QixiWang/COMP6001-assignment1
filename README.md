@@ -1,22 +1,42 @@
 # COMP6012 Assignment 1
 
 ## Project Title
-Image Restoration and Object Detection
+Image Restoration and Object Detection under Motion Blur
 
 ## Project Overview
-This project explores image deblurring and its effect on object detection performance.
+This project investigates whether simple image restoration can improve downstream object detection performance on motion-blurred images.
 
-## Folder Structure
-- data/: dataset files
-- outputs/: generated results and figures
-- ai_logs/: AI prompt and output records
-- assignment1.ipynb: main notebook
+The work is organised into three main stages:
 
-## Setup Instructions
-1. Create and activate a virtual environment
-2. Install required Python libraries
-3. Place dataset files into the data folder
-4. Open and run assignment1.ipynb
+1. **Image restoration**
+   - Apply simple deblurring / sharpening baselines to blurred images
+   - Evaluate restoration quality using MSE, PSNR and SSIM
 
-## Notes
-This repository uses Git for version control and stores AI-assisted development logs.
+2. **Object detection analysis**
+   - Apply a pretrained YOLOv8n detector to blurred and restored images
+   - Compare detection counts, confidence scores and qualitative detection results
+
+3. **Domain-specific fine-tuning**
+   - Build a processed dataset with blur, deblur and sharp domains
+   - Generate pseudo-labels from the sharp images
+   - Fine-tune YOLOv8n on the deblurred training set
+   - Evaluate the fine-tuned model on blur, deblur and sharp test sets
+
+The main notebook for the assignment is `assignment1.ipynb`.
+
+---
+
+## Repository Structure
+
+```text
+COMP6012-assignment/
+├── ai_logs/                         # AI prompt / output records used during development
+├── data/                            # Original dataset files
+├── prepared_dataset/                # Processed dataset with train/val/test splits
+├── runs/
+│   └── detect/
+│       └── runs_deblur_train/       # YOLO training outputs, logs, checkpoints
+├── assignment1.ipynb                # Main notebook for the assignment
+├── yolov8n.pt                       # Pretrained YOLOv8n weights
+├── README.md                        # Project documentation
+└── .gitignore
