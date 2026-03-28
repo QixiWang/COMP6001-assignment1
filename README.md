@@ -1,4 +1,4 @@
-# COMP6001 Assignment 1
+# COMP6012 Assignment 1
 
 ## Project Title
 Image Restoration and Object Detection
